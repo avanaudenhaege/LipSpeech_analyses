@@ -1,0 +1,124 @@
+{
+  "Name": "PhonoLoc",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for localizer contrasts - visual localizer for Temporal Visual Speech Area",
+  "Input": {
+    "task": [
+      "TVSALoc"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "run_level",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          "trial_type.NL",
+          "trial_type.VL",
+          "trial_type.response",
+          "trial_type.target",
+          "trans_?",
+          "rot_?"
+        ],
+        "HRF": {
+          "Variables": [
+            "trial_type.NL",
+            "trial_type.VL",
+            "trial_type.response",
+            "trial_type.target"
+          ],
+          "Model": "spm"
+        },
+          "Type": "glm",
+          "Options": {
+              "HighPassFilterCutoffHz": 0.0078,
+              "Mask": {
+                   "desc": ["brain"],
+                   "suffix": ["mask"]
+              }
+          },
+          "Software": {
+              "SPM": {
+                  "SerialCorrelation": "FAST",
+                  "InclusiveMaskingTreshold": "-Inf"
+              }
+          }
+      },
+      "DummyContrasts": {
+        "Test": "t",
+        "Contrasts": [
+          "trial_type.NL",
+          "trial_type.VL",
+          "trial_type.response",
+          "trial_type.target"
+        ]
+      },
+      "Contrasts": [
+        {
+          "Name": "VL_gt_NL",
+          "ConditionList": [
+            "trial_type.VL",
+            "trial_type.NL"
+          ],
+          "Weights": [
+            1,
+            -1
+          ],
+          "Test": "t"
+        },
+        {
+          "Name": "NL_gt_VL",
+          "ConditionList": [
+            "trial_type.VL",
+            "trial_type.NL"
+          ],
+          "Weights": [
+            -1,
+            1
+          ],
+          "Test": "t"
+        }
+      ]
+    },
+    {
+      "Level": "Subject",
+      "Name": "subject_level",
+      "GroupBy": [
+        "contrast",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          1
+        ],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    },
+    {
+      "Level": "Dataset",
+      "Name": "dataset_level",
+      "GroupBy": [
+        "contrast"
+      ],
+      "Model": {
+        "X": [
+          1
+        ],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    }
+  ]
+}

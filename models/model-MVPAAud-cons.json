@@ -1,0 +1,79 @@
+{
+  "Name": "MVPAAud-cons",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for multivariate contrasts of auditory consonants in LipSpeech XP",
+  "Input": {
+    "task": [
+      "MVPAAud"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "MVPAAud-cons",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Transformations": {
+        "Transformer": "cpp_spm",
+        "Instructions": [
+          {
+            "Name": "Filter",
+            "Input": "consonant",
+            "Query": "target < 1"
+          }
+        ]
+      },
+      "Model": {
+          "X": [
+              "consonant.f",
+              "consonant.l",
+              "consonant.p",
+              "trans_?",
+              "rot_?",
+              "*outlier*"
+          ],
+          "HRF": {
+              "Variables": [
+                "consonant.f",
+                "consonant.l",
+                "consonant.p"
+              ],
+              "Model": "spm"
+          },
+          "Type": "glm",
+          "Options": {
+              "HighPassFilterCutoffHz": 0.0078,
+              "Mask": {
+                   "suffix": [
+                      "mask"
+                    ], 
+                   "desc": [
+                   	  "brain"
+                   	]
+              }
+          },
+          "Software": {
+              "SPM": {
+                  "SerialCorrelation": "FAST",
+                  "InclusiveMaskingTreshold": "-Inf"
+              }
+          }
+      },
+      "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+            "consonant.f",
+            "consonant.l",
+            "consonant.p"
+
+          ]
+      }
+  }
+
+  ]
+  }

@@ -1,0 +1,311 @@
+{
+  "descriptions": [
+    {
+         "dataType": "anat",
+         "modalityLabel": "T1w",
+         "criteria": {
+           "SeriesDescription": "Sag T1 MPRAGE 1x1x1"
+         },
+         "sidecarChanges": {
+           "ProtocolName": "T1"
+         }
+	},
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-VisLoc",
+      "criteria": {
+        "SeriesDescription": "VisLoc"
+      },
+      "sidecarChanges": {
+        "TaskName": "VisLoc"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-PhonoLoc",
+      "criteria": {
+        "SeriesDescription": "PhonoLoc"
+      },
+      "sidecarChanges": {
+        "TaskName": "PhonoLoc"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-TVSALoc",
+      "criteria": {
+        "SeriesDescription": "TVSALoc"
+      },
+      "sidecarChanges": {
+        "TaskName": "TVSALoc"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A1"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A2"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A3"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A4"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A5"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A6"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A7"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A8"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A9"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A10"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A11"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAAud",
+      "criteria": {
+        "SeriesDescription": "MVPA_A12"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAAud"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V1"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V2"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V3"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V4"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V5"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V6"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V7"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V8"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V9"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V10"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V11"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    },
+    {
+      "dataType": "func",
+      "modalityLabel": "bold",
+      "customLabels": "task-MVPAVis",
+      "criteria": {
+        "SeriesDescription": "MVPA_V12"
+      },
+      "sidecarChanges": {
+        "TaskName": "MVPAVis"
+      }
+    }
+  ]
+}

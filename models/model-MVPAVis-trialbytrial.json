@@ -1,0 +1,133 @@
+{
+  "Name": "MVPAVis-trialbytrial",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for multivariate contrasts of visual syllables in LipSpeech XP for sub03",
+  "Input": {
+    "task": [
+      "MVPAVis"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "MVPAVis-trialbytrial",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          "trial_type.S1fa",
+          "trial_type.S1la",
+          "trial_type.S1pa",
+          "trial_type.S1fi",
+          "trial_type.S1li",
+          "trial_type.S1pi",
+          "trial_type.S1fe",
+          "trial_type.S1le",
+          "trial_type.S1pe",
+          "trial_type.S2fa",
+          "trial_type.S2la",
+          "trial_type.S2pa",
+          "trial_type.S2fi",
+          "trial_type.S2li",
+          "trial_type.S2pi",
+          "trial_type.S2fe",
+          "trial_type.S2le",
+          "trial_type.S2pe",
+          "trial_type.S3fa",
+          "trial_type.S3la",
+          "trial_type.S3pa",
+          "trial_type.S3fi",
+          "trial_type.S3li",
+          "trial_type.S3pi",
+          "trial_type.S3fe",
+          "trial_type.S3le",
+          "trial_type.S3pe",
+          "trial_type.response",
+          "trans_?",
+          "rot_?",
+          "*outlier*"
+        ],
+        "HRF": {
+          "Variables": [
+          "trial_type.S1fa",
+          "trial_type.S1la",
+          "trial_type.S1pa",
+          "trial_type.S1fi",
+          "trial_type.S1li",
+          "trial_type.S1pi",
+          "trial_type.S1fe",
+          "trial_type.S1le",
+          "trial_type.S1pe",
+          "trial_type.S2fa",
+          "trial_type.S2la",
+          "trial_type.S2pa",
+          "trial_type.S2fi",
+          "trial_type.S2li",
+          "trial_type.S2pi",
+          "trial_type.S2fe",
+          "trial_type.S2le",
+          "trial_type.S2pe",
+          "trial_type.S3fa",
+          "trial_type.S3la",
+          "trial_type.S3pa",
+          "trial_type.S3fi",
+          "trial_type.S3li",
+          "trial_type.S3pi",
+          "trial_type.S3fe",
+          "trial_type.S3le",
+          "trial_type.S3pe"
+          ],
+          "Model": "spm"
+        },
+        "Type": "glm",
+        "Options": {
+          "HighPassFilterCutoffHz": 0.0078,
+          "Mask": ""
+        },
+        "Software": {
+          "SPM": {
+            "SerialCorrelation": "FAST",
+            "InclusiveMaskingTreshold": "-Inf"
+          }
+        }
+      },
+      "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+          "trial_type.S1fa",
+          "trial_type.S1la",
+          "trial_type.S1pa",
+          "trial_type.S1fi",
+          "trial_type.S1li",
+          "trial_type.S1pi",
+          "trial_type.S1fe",
+          "trial_type.S1le",
+          "trial_type.S1pe",
+          "trial_type.S2fa",
+          "trial_type.S2la",
+          "trial_type.S2pa",
+          "trial_type.S2fi",
+          "trial_type.S2li",
+          "trial_type.S2pi",
+          "trial_type.S2fe",
+          "trial_type.S2le",
+          "trial_type.S2pe",
+          "trial_type.S3fa",
+          "trial_type.S3la",
+          "trial_type.S3pa",
+          "trial_type.S3fi",
+          "trial_type.S3li",
+          "trial_type.S3pi",
+          "trial_type.S3fe",
+          "trial_type.S3le",
+          "trial_type.S3pe"
+          ]
+      }
+    }
+  ]
+}

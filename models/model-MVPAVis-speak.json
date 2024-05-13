@@ -1,0 +1,71 @@
+{
+  "Name": "MVPAVis-speak",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for multivariate contrasts of speakers presented visually in LipSpeech XP",
+  "Input": {
+    "task": [
+      "MVPAVis"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "MVPAVis-speak",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Transformations": {
+        "Transformer": "cpp_spm",
+        "Instructions": [
+          {
+            "Name": "Filter",
+            "Input": "actor",
+            "Query": "target < 1"
+          }
+        ]
+      },
+      "Model": {
+          "X": [
+              "actor.S1",
+              "actor.S2",
+              "actor.S3",
+              "trans_?",
+              "rot_?",
+              "*outlier*"
+          ],
+          "HRF": {
+              "Variables": [
+                "actor.S1",
+                "actor.S2",
+                "actor.S3"
+              ],
+              "Model": "spm"
+          },
+          "Type": "glm",
+          "Options": {
+              "HighPassFilterCutoffHz": 0.0078,
+              "Mask": ""
+          },
+          "Software": {
+              "SPM": {
+                  "SerialCorrelation": "FAST"
+              }
+          }
+      },
+      "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+            "actor.S1",
+            "actor.S2",
+            "actor.S3"
+
+          ]
+      }
+  }
+
+  ]
+  }

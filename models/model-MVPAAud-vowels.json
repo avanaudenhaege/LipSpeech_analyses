@@ -1,0 +1,71 @@
+{
+  "Name": "MVPAAud-vowels",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for multivariate contrasts of auditory vowels in LipSpeech XP",
+  "Input": {
+    "task": [
+      "MVPAAud"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "MVPAAud-vowels",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Transformations": {
+        "Transformer": "cpp_spm",
+        "Instructions": [
+          {
+            "Name": "Filter",
+            "Input": "vowel",
+            "Query": "target < 1"
+          }
+        ]
+      },
+      "Model": {
+          "X": [
+              "vowel.a",
+              "vowel.e",
+              "vowel.i",
+              "trans_?",
+              "rot_?",
+              "*outlier*"
+          ],
+          "HRF": {
+              "Variables": [
+                "vowel.a",
+                "vowel.e",
+                "vowel.i"
+              ],
+              "Model": "spm"
+          },
+          "Type": "glm",
+          "Options": {
+              "HighPassFilterCutoffHz": 0.0078,
+              "Mask": ""
+          },
+          "Software": {
+              "SPM": {
+                  "SerialCorrelation": "FAST"
+              }
+          }
+      },
+      "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+            "vowel.a",
+            "vowel.e",
+            "vowel.i"
+
+          ]
+      }
+  }
+
+  ]
+  }

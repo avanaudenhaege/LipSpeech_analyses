@@ -1,0 +1,119 @@
+{
+  "Name": "MVPAVis-syll",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for multivariate contrasts of visual syllables in LipSpeech XP",
+  "Input": {
+    "task": [
+      "MVPAVis"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "MVPAVis-syll",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Transformations": {
+        "Transformer": "cpp_spm",
+        "Instructions": [
+          {
+            "Name": "Replace",
+            "Input": [
+                "trial_type"
+            ],
+            "Replace": [
+                    {"key": "S1fa", "value": "fa"},
+                    {"key": "S1la", "value": "la"},
+                    {"key": "S1pa", "value": "pa"},
+                    {"key": "S1fi", "value": "fi"},
+                    {"key": "S1li", "value": "li"},
+                    {"key": "S1pi", "value": "pi"},
+                    {"key": "S1fe", "value": "fe"},
+                    {"key": "S1le", "value": "le"},
+                    {"key": "S1pe", "value": "pe"},
+                    {"key": "S2fa", "value": "fa"},
+                    {"key": "S2la", "value": "la"},
+                    {"key": "S2pa", "value": "pa"},
+                    {"key": "S2fi", "value": "fi"},
+                    {"key": "S2li", "value": "li"},
+                    {"key": "S2pi", "value": "pi"},
+                    {"key": "S2fe", "value": "fe"},
+                    {"key": "S2le", "value": "le"},
+                    {"key": "S2pe", "value": "pe"},
+                    {"key": "S3fa", "value": "fa"},
+                    {"key": "S3la", "value": "la"},
+                    {"key": "S3pa", "value": "pa"},
+                    {"key": "S3fi", "value": "fi"},
+                    {"key": "S3li", "value": "li"},
+                    {"key": "S3pi", "value": "pi"},
+                    {"key": "S3fe", "value": "fe"},
+                    {"key": "S3le", "value": "le"},
+                    {"key": "S3pe", "value": "pe"}
+             ],
+             "Attribute": "value"
+          }
+        ]
+      },
+      "Model": {
+        "X": [
+          "trial_type.fa",
+          "trial_type.la",
+          "trial_type.pa",
+          "trial_type.fi",
+          "trial_type.li",
+          "trial_type.pi",
+          "trial_type.fe",
+          "trial_type.le",
+          "trial_type.pe",
+          "trial_type.response",
+          "trans_?",
+          "rot_?",
+          "*outlier*"
+        ],
+        "HRF": {
+          "Variables": [
+            "trial_type.fa",
+            "trial_type.la",
+            "trial_type.pa",
+            "trial_type.fi",
+            "trial_type.li",
+            "trial_type.pi",
+            "trial_type.fe",
+            "trial_type.le",
+            "trial_type.pe"
+          ],
+          "Model": "spm"
+        },
+        "Type": "glm",
+        "Options": {
+          "HighPassFilterCutoffHz": 0.0078,
+          "Mask": ""
+        },
+        "Software": {
+          "SPM": {
+            "SerialCorrelation": "FAST"
+          }
+        }
+      },
+      "DummyContrasts": {
+          "Test": "t",
+          "Contrasts": [
+            "trial_type.fa",
+            "trial_type.la",
+            "trial_type.pa",
+            "trial_type.fi",
+            "trial_type.li",
+            "trial_type.pi",
+            "trial_type.fe",
+            "trial_type.le",
+            "trial_type.pe"
+          ]
+      }
+    }
+  ]
+}

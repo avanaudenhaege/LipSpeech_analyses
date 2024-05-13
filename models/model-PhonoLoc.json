@@ -1,0 +1,138 @@
+{
+  "Name": "PhonoLoc",
+  "BIDSModelVersion": "1.0.0",
+  "Description": "model for localizer contrasts - auditory localizer for phonological regions in auditory cortex",
+  "Input": {
+    "task": [
+      "PhonoLoc"
+    ],
+    "space": [
+      "IXI549Space"
+    ]
+  },
+  "Nodes": [
+    {
+      "Level": "Run",
+      "Name": "run_level",
+      "GroupBy": [
+        "run",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          "trial_type.SYL",
+          "trial_type.SCR",
+          "trial_type.response",
+          "trial_type.target",
+          "trans_?",
+          "rot_?"
+        ],
+        "HRF": {
+          "Variables": [
+            "trial_type.SYL",
+            "trial_type.SCR",
+            "trial_type.response",
+            "trial_type.target"
+          ],
+          "Model": "spm"
+        },
+          "Type": "glm",
+          "Options": {
+              "HighPassFilterCutoffHz": 0.0078,
+              "Mask": {
+                   "desc": ["brain"],
+                   "suffix": ["mask"]
+              }
+          },
+          "Software": {
+              "SPM": {
+                  "SerialCorrelation": "FAST",
+                  "InclusiveMaskingTreshold": "-Inf"
+              }
+          }
+      },
+      "DummyContrasts": {
+        "Test": "t",
+        "Contrasts": [
+          "trial_type.SYL",
+          "trial_type.SCR",
+          "trial_type.response",
+          "trial_type.target"
+        ]
+      },
+      "Contrasts": [
+        {
+          "Name": "SYL_gt_SCR",
+          "ConditionList": [
+            "trial_type.SYL",
+            "trial_type.SCR"
+          ],
+          "Weights": [
+            1,
+            -1
+          ],
+          "Test": "t"
+        },
+        {
+          "Name": "SCR_gt_SYL",
+          "ConditionList": [
+            "trial_type.SYL",
+            "trial_type.SCR"
+          ],
+          "Weights": [
+            -1,
+            1
+          ],
+          "Test": "t"
+        },
+        {
+          "Name": "targets",
+          "ConditionList": [
+            "trial_type.target",
+            "trial_type.SYL",
+            "trial_type.SCR"
+          ],
+          "Weights": [
+            2,
+            -1,
+            -1
+          ],
+          "Test": "t"
+        }
+      ]
+    },
+    {
+      "Level": "Subject",
+      "Name": "subject_level",
+      "GroupBy": [
+        "contrast",
+        "subject"
+      ],
+      "Model": {
+        "X": [
+          1
+        ],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    },
+    {
+      "Level": "Dataset",
+      "Name": "dataset_level",
+      "GroupBy": [
+        "contrast"
+      ],
+      "Model": {
+        "X": [
+          1
+        ],
+        "Type": "glm"
+      },
+      "DummyContrasts": {
+        "Test": "t"
+      }
+    }
+  ]
+}
